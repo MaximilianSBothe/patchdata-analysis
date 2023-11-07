@@ -44,9 +44,10 @@ dims1 = [1 75];
 
 default_input1 = {'Stepper','longIV','test_IV1','1','rampIV','1','1','jitter','1','1'};        
 
-protocol_names = inputdlg(protocol_name_inputs,prompt_title1,dims1,default_input1);
-                 
+%protocol_names = inputdlg(protocol_name_inputs,prompt_title1,dims1,default_input1);
+protocol_names = default_input1';                 
                   
+
                   
 steppername=protocol_names{1,1};
 longIVname=protocol_names{2,1};
@@ -67,9 +68,10 @@ end
  
 Stepper=0; longIV=0; test_IV1=0; const_cc=0; rampIV=0; ramptimeIV=0;
 PP=0; Jitter=0; Train=0; const_VC=0;
-if ~exist('filter_i')                      
-filter_i = menu('Filter experiments?','Yes','No, analyse all');
-end
+
+
+
+filter_i=1;
 if filter_i==1 
     experiments_to_analyse = inputdlg('Enter experiments as space-separated numbers:', 'Sample', [1 50]);
     experiments_to_analyse = str2num(experiments_to_analyse{1});
@@ -87,7 +89,7 @@ for i= 1: size(patchmaster_data.(structname{1,1}).data,2)
                       decay_time_e_minis e_minis_maxamp e_Mini_decay_pool e_Mini_maxamp_pool i_Mini_decay_pool...
                       i_Mini_maxamp_pool rawdata stimulusdata filter_i experiments_to_analyse 
 
-if filter_i==1 && ismember(i,experiments_to_analyse)|| filter_i~=1 %this body ends in line 1328
+if filter_i==1 && ismember(i,experiments_to_analyse)|| filter_i~=1 %this body ends in line 1331
                  
                  
     if strcmp(protocol{1,i},steppername)

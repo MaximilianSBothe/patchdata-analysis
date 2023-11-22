@@ -161,7 +161,7 @@ if filter_i==1 && ismember(i,experiments_to_analyse)|| filter_i~=1 %this body en
         hold on
         plot (f1_x_axis,mean_stepperdrop*ones(round(size(f1_x_axis,2)),1)*1000,'r')
         plot (f1_x_axis,mean_resting_pot*ones(round(size(f1_x_axis,2)),1)*1000,'g')
-        mean_all_sweeps_movmean=movmean(mean_all_sweeps,100);
+        mean_all_sweeps_movmean=movmean(mean_all_sweeps,0.001*samplingrates{1,i});
         for z=1:size(mean_all_sweeps_movmean)
             if mean_all_sweeps_movmean(z)<=tau_pot
                 tau_index= (z-(pretrigger_time1*samplingrates{1,i}));

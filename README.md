@@ -1,6 +1,6 @@
 # patchdata-analysis
 
-The "Patchmaster_import_script" is used to analyse HEKA Patchmaster files, containing current clamp data recorded using the stimulus protocols defined in "TO BE ADDED".
+The "Analysis_script" is used to analyse HEKA Patchmaster files, containing current clamp data recorded using the stimulus protocols defined in "TO BE ADDED".
 
 
 ______________________________
